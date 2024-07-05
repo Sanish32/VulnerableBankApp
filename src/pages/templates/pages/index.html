@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Bankrupt</title>
+    </head>
+
+
+    <body>
+		<h1>Bankrupt</h1>
+
+        <table>
+            <tr>
+              <th style="text-align:left">Username:</th>
+              <td>{{ user.username }}</td>
+            </tr>
+          </table>
+
+
+        <form action='logout/' method="POST">
+			{% csrf_token %}
+            <input type="submit" value="Logout"/>
+        </form>
+		
+        <h2>Your IBAN accounts</h2>
+
+		<ul>
+		{% for a in accounts %}
+
+		<li>{{a.iban}} : {{a.balance}}
+		</li>
+
+		{% endfor %}
+    </ul>
+
+        <h2>Topping up money</h2>
+
+        <form method="GET" action="add/">
+        <!-- <form method="POST" action="add/"> -->
+			{% csrf_token %}
+            <span>TO:</span><br/>
+            <!-- <select name="to">
+			{% for account in accounts %}
+                <option value="{{account.iban}}">{{account.iban}}</option>
+			{% endfor %}
+            </select><br/> -->
+            <input type="text" name="to"/><br/>
+
+
+            <span>Amount:</span><br/>
+            <input type="number" name="amount"/><br/>
+
+            <input type="submit" value="Add!"/>
+        </form>
+
+        <h2>Delete account</h2>
+        <form method="GET" action="delete/">
+        <!-- <form method="POST" action="delete/"> -->
+            {% csrf_token %}
+            <span>IBAN:</span><br/>
+            <input type="text" name="iban"/><br/>
+
+            <input type="submit" value="Delete!"/>
+        </form>
+
+        <h2>Create a new account</h2>
+
+        <!-- <form action='create/' method="POST"> -->
+        <form action="create/" method="GET">
+            {% csrf_token %}
+
+			<label>IBAN : </label><input type="text" name="iban"/><br/>
+            <label>Password : </label><input type="password" name="password"/><br/>
+            <label>Again, enter the same password : </label><input type="password" name="password2"/><br/>
+            <input type="submit" value="Send"/>
+        </form>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+    </body>
+
+
+    </body>
+</html>
