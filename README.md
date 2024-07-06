@@ -42,7 +42,7 @@ ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click on 'Users' under the 'A
 ## Flaw 1: Broken Authentication
 Broken authentication occurs when an application lacks robust identification and authentication mechanisms. For instance, passwords that are guessable, short, or lack a combination of digits, lowercase, and uppercase letters are considered weak. To add on, users often use their username as their password to create an account quickly. These issues need to be addressed because attackers can easily crack weak passwords.
 
-### Description: As of now, no password checks have been implemented, which is a significant vulnerability. 
+### Vulnerable: As of now, no password checks have been implemented, which is a significant vulnerability. 
 Link: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
 
 ### Fix: Password checking is implemented but currently commented out.
@@ -55,8 +55,10 @@ Another vulnerability is SQL injection, where an attacker can manipulate a SQL q
 
 To mitigate this issue, avoid using traditional SQL queries directly. Instead, leverage Django's ORM (Object-Relational Mapping) or use parameterized queries, which help prevent SQL injection vulnerabilities.
 
-### Description: As of now, when the user tops up the money, the balance is updated in the database using a traditional SQL query.
-Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L101-L104
+### Vulnerable: As of now, when the user tops up the money, the balance is updated in the database using a traditional SQL query.
+Link: 
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L101-L104
+https://github.com/Sanish32/VulnerableBankApp/blob/ac23f8c9181638c1583beb6298afebf4e755dffd/src/pages/views.py#L137-L138
 
 ### Fix: The solution is to use Django's ORM instead of raw SQL for updating the balance.
 Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L128-L131
@@ -68,7 +70,7 @@ The GET method should be used when the form does not include any sensitive data.
 
 On the other hand, the POST method provides a more secure way of handling any type of data, particularly sensitive data. With POST, the values are not exposed in the URL, which mitigates the security risk associated with data interception through the link path.
 
-### Description: Since the GET method is used to send the form, parameters from the form are exposed in the URL.
+### Vulnerable: Since the GET method is used to send the form, parameters from the form are exposed in the URL.
 Links: 
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L21-L22
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L83-L85
@@ -79,9 +81,22 @@ https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L14
 
 ## Flaw 4: Insufficient Logging & Monitoring
-Description : While application may run properly meeting basic needs, it is a good practice to create log for monitoring the application. The depending on the type of log used, it helps the develop to keep track of any ongoing events or malicious activities. 
+While the application may function properly meeting basic needs, it is considered good practice to implement logging for monitoring the application. Depending on the type of logging implemented, it helps developers track ongoing events and detect malicious activities.
 
-Fix: 
+### Fix: 
+Link: 
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L30-L31
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L38-L39
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L47-L48
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L56-L57
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L63-L64
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L72-L73
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L80-L81
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L119-L120
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L152-L153
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L160-L161
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L168-L169
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L177-L178
 
 ## Flaw 5: Broken Access Control
 Description : 
