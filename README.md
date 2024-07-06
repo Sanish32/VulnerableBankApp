@@ -53,7 +53,7 @@ https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc
 ## Flaw 2: SQL Injection
 Another vulnerability is SQL injection, where an attacker can manipulate a SQL query by injecting malicious SQL code into the web application. In my application, if an attacker manages to manipulate a SQL query and inserts their IBAN, they could receive money instead of the intended user who is topping up their account.
 
-Fix: To mitigate this issue, avoid using traditional SQL queries directly. Instead, leverage Django's ORM (Object-Relational Mapping) or use parameterized queries, which help prevent SQL injection vulnerabilities.
+To mitigate this issue, avoid using traditional SQL queries directly. Instead, leverage Django's ORM (Object-Relational Mapping) or use parameterized queries, which help prevent SQL injection vulnerabilities.
 
 ### Description: As of now, when the user tops up the money, the balance is updated in the database using a traditional SQL query.
 Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L101-L104
@@ -62,11 +62,21 @@ Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef
 Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L128-L131
 
 ## Flaw 3: Sensitive Data Exposure
-Description : In the HTML form, there are mainly 2 ways of sending the form to the server. They are GET and POST methods. Both could serve same purposes while there is a difference between them. GET method should be used whenever the form does not include any sensitive data while opposite goes for POST method. One of the reasons is that by using GET method, the parameters or values passed within the form gets leaked or exposed in the link path. This opens up the chances that an attacker can steal information from the link path. If the values are a part of sensitive data, it would create a security issue. 
+In HTML forms, there are primarily two methods for sending data to the server: GET and POST. Both can serve the same purpose, but there are key differences between them.
 
-While on the other hand, POST is a secure way of handling any types of data (especially sensitive data). With POST, no values are exposed in the link path which alleviates the security risk.
+The GET method should be used when the form does not include any sensitive data. In contrast, the POST method is recommended for forms containing sensitive data. One reason for this distinction is that with the GET method, the parameters or values passed within the form are exposed in the URL query string. This exposes them to potential interception by attackers, posing a security risk, especially if the values include sensitive information.
 
-Fix: 
+On the other hand, the POST method provides a more secure way of handling any type of data, particularly sensitive data. With POST, the values are not exposed in the URL, which mitigates the security risk associated with data interception through the link path.
+
+### Description: Since the GET method is used to send the form, parameters from the form are exposed in the URL.
+Links: 
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L21-L22
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L83-L85
+
+### Fixes: When an account is created, the form is sent via the POST method. Additionally, the user is redirected to the home page after account creation.
+Links: 
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L87-L88
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L14
 
 ## Flaw 4: Insufficient Logging & Monitoring
 Description : While application may run properly meeting basic needs, it is a good practice to create log for monitoring the application. The depending on the type of log used, it helps the develop to keep track of any ongoing events or malicious activities. 
