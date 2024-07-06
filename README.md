@@ -10,6 +10,7 @@ The project is about showing the 5 types of vulnerabilities and fixes to them ar
 
 1. Clone the directory
 2. Run the server with: ``python3 manage.py runserver``
+3. Go to ``http://localhost:8000/``
 
 You can use the three premade users:
 
@@ -39,7 +40,8 @@ alice.save()
 ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click the Users under AUTHENTICATION AND AUTHORIZATION section. Now, click the desired user, then untick the staff and superuser status.
 
 ## Flaw 1: Broken Authentication
-Broken authentication is defined as the application which lacks robust identification and authentication mechanisms. For instance, the password that are guessable, short or lacking in combination of digits, lower or upper alphabets are considered as weak password. To add on, users often use username as password for creating an account quickly. These issues need to be addressed because it is possible for attackers to crack the password. 
+Broken authentication is defined as the application which lacks robust identification and authentication mechanisms. For instance, the password that are guessable, short or lacking in combination of digits, lower or upper alphabets are considered as weak password. To add on, users often use username as password for creating an account quickly. These issues need to be addressed because it is possible for attackers to crack the password easily. 
+
 
 
 
