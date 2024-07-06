@@ -95,10 +95,10 @@ def addView(request):
         iban = request.GET.get('to')
         amount = int(request.GET.get('amount', 0))  # Default to 0 if 'amount' is not provided or invalid
         
-		# iban = request.POST.get('to')
+	# iban = request.POST.get('to')
         # amount = int(request.POST.get('amount', 0))
+	    
         # Vulnerable to SQL injection
- 
         query = f"UPDATE Account SET balance = balance + {amount} WHERE iban = '{iban}'"
         with connection.cursor() as cursor:
             cursor.execute(query)
