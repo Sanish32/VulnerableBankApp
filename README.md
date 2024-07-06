@@ -83,8 +83,9 @@ https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc
 ## Flaw 4: Insufficient Logging & Monitoring
 While the application may function properly meeting basic needs, it is considered good practice to implement logging for monitoring the application. Depending on the type of logging implemented, it helps developers track ongoing events and detect malicious activities.
 
-### Fix: 
+### Fix: Different events of loggings are enabled
 Link: 
+https://github.com/Sanish32/VulnerableBankApp/blob/830c2c695c32305b810c65d085995c3f4a04d100/src/pages/views.py#L8-L9
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L30-L31
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L38-L39
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L47-L48
