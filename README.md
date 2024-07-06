@@ -1,10 +1,10 @@
 # Cyber Security Project 1
 
-This is my project for Cyber Security Project for https://cybersecuritybase.mooc.fi/module-3.1. My project includes the description and fixes for each flows according to OWASP 2017 top ten list.
+This is my project for Cyber Security Project for https://cybersecuritybase.mooc.fi/module-3.1. My project includes descriptions and fixes for each flow based on the OWASP Top Ten List of 2017.
 
-My web application is about the handling of one/multiple bank account(s) for the users. The web application is very simple that allows user to create an account, top up the money and display the existing accounts (of the user) with the balance. 
+My web application manages one or multiple bank accounts for users. It is a simple application that allows users to create an account, top up their balance, and display their existing accounts with their balances.
 
-The project is about showing the 5 types of vulnerabilities and fixes to them are commented out. 
+The project demonstrates five types of vulnerabilities, with comments providing fixes for each.
 
 ## Installation Instructions
 
@@ -12,7 +12,7 @@ The project is about showing the 5 types of vulnerabilities and fixes to them ar
 2. Run the server with: ``python3 manage.py runserver``
 3. Go to ``http://localhost:8000/``
 
-You can use the three premade users:
+You can use the two premade users:
 
 - ``username: alice``
 ``password: redqueen``
@@ -20,9 +20,9 @@ You can use the three premade users:
 - ``username: bob``
 ``password: squarepants``
 
-If you want to create a new user, open up the terminal and go into this folder. Then, type ``python3 manage.py createsuperuser``. Then, you will be asked to enter new username, email and password. Only enter username and password while skipping email section by pressing enter button.
+f you want to create a new user, open the terminal and navigate to this folder. Then, type ``python3 manage.py createsuperuser``. You will be prompted to enter a new username, email, and password. Enter the username and password, and skip the email section by pressing the Enter key. This will create a user with superuser status. 
 
-This will make the user as superuser status. To downgrade the status, in 2 following ways: 
+To downgrade the status, you can choose one of the following methods:
 i) type ``python3 manage.py shell``. 
 
 ``
@@ -37,15 +37,15 @@ alice.is_superuser = False
 alice.save()
 ``
 
-ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click the Users under AUTHENTICATION AND AUTHORIZATION section. Now, click the desired user, then untick the staff and superuser status.
+ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click on 'Users' under the 'AUTHENTICATION AND AUTHORIZATION' section. Next, click on the desired user and untick the 'staff' and 'superuser' status checkboxes.
 
 ## Flaw 1: Broken Authentication
-Broken authentication is defined as the application which lacks robust identification and authentication mechanisms. For instance, the password that are guessable, short or lacking in combination of digits, lower or upper alphabets are considered as weak password. To add on, users often use username as password for creating an account quickly. These issues need to be addressed because it is possible for attackers to crack the password easily. 
+Broken authentication occurs when an application lacks robust identification and authentication mechanisms. For instance, passwords that are guessable, short, or lack a combination of digits, lowercase, and uppercase letters are considered weak. To add on, users often use their username as their password to create an account quickly. These issues need to be addressed because attackers can easily crack weak passwords.
 
-### Description: As of now, no checking for password has been done, which is a sign of vulnerability. 
+### Description: As of now, no password checks have been implemented, which is a significant vulnerability. 
 Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
 
-### Fixes: Password checking is done but are commented out.
+### Fixes: Password checking is implemented but currently commented out.
 Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26-L28
 
 ## Flaw 2: SQL Injection
