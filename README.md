@@ -46,8 +46,7 @@ Broken authentication is defined as the application which lacks robust identific
 Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
 
 ### Fixes: Password checking is done but are commented out.
-Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26
-
+Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26-L28
 
 ## Flaw 2: SQL Injection
 Another vulnerability is SQL injection when an attacker is able to manipulate a SQL query as shown in the code by injecting malicious SQL code in the web application. In my application, if an attacker somehow is capable of manipulating a SQL query and inserts his iban, instead of the iban account that user has chosen, an attacker gains the money instead of user who genuienely tops up the money. 
