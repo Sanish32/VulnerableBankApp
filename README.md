@@ -78,7 +78,7 @@ https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc
 ### Fixes: When an account is created, the form is sent via the POST method. Additionally, the user is redirected to the home page after account creation.
 Links: 
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L87-L88
-https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L14
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L14-L19
 
 ## Flaw 4: Insufficient Logging & Monitoring
 While the application may function properly meeting basic needs, it is considered good practice to implement logging for monitoring the application. Depending on the type of logging implemented, it helps developers track ongoing events and detect malicious activities.
