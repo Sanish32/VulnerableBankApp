@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Account
 from urllib.parse import urlencode
 from django.db import connection
-import logging
 
+import logging
 logger = logging.getLogger(__name__)
 
 @login_required
