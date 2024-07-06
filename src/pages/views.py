@@ -134,7 +134,10 @@ def addView(request):
             messages.error(request, "Amount must be a positive number.")
         '''
 
-    return redirect('/')
+    params = urlencode({'to': iban, 'amount': amount})
+    return redirect(f'/?{params}')
+
+    # return redirect('/')
 
 @login_required
 def deleteView(request):
