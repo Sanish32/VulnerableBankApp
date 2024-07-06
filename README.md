@@ -21,10 +21,11 @@ You can use the three premade users:
 
 If you want to create a new user, open up the terminal and go into this folder. Then, type ``python3 manage.py createsuperuser``. Then, you will be asked to enter new username, email and password. Only enter username and password while skipping email section by pressing enter button.
 
-This will make the user as superuser status. To downgrade the status, type ``python3 manage.py shell``. 
+This will make the user as superuser status. To downgrade the status, in 2 following ways: 
+i) type ``python3 manage.py shell``. 
 
 ``
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
 Update Bob's superuser status
 bob = User.objects.get(username='bob')
 bob.is_superuser = False
@@ -35,6 +36,7 @@ alice.is_superuser = False
 alice.save()
 ``
 
+ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click the Users under AUTHENTICATION AND AUTHORIZATION section. Now, click the desired user, then untick the staff and superuser status.
 
 ## Flaw 1: Broken Authentication
 Broken authentication is defined as the application which lacks robust identification and authentication mechanisms. For instance, the password that are guessable, short or lacking in combination of digits, lower or upper alphabets are considered as weak password. To add on, users often use username as password for creating an account quickly. These issues need to be addressed because it is possible for attackers to crack the password. 
