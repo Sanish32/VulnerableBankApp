@@ -6,10 +6,24 @@ My web application is about the handling of one/multiple bank account(s) for the
 
 The project is about showing the 5 types of vulnerabilities and fixes to them are commented out. 
 
-## Flaw 1: Broken Authentication
-Broken authentication is defined as the application which lacks robust identification and authentication mechanisms. For instance, the weak password such as guesable password, short password, or not including any digit, lower or upper alphabet, have become a major point in the broken authentication. 
+## Installation Instructions
 
-To add on, lazy effort in making password such as using username as password is another concerning issue to be addressed.
+1. Clone the directory
+2. Run the server with: ``python3 manage.py runserver``
+
+You can use the three premade users:
+
+- ``username: alice``
+``password: redqueen``
+
+- ``username: bob``
+``password: squarepants``
+
+
+## Flaw 1: Broken Authentication
+Broken authentication is defined as the application which lacks robust identification and authentication mechanisms. For instance, the password that are guessable, short or lacking in combination of digits, lower or upper alphabets are considered as weak password. To add on, users often use username as password for creating an account quickly. These issues need to be addressed because it is possible for attackers to crack the password. 
+
+
 
 Fixes: are commented in the following sections.
 
