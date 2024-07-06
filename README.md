@@ -42,10 +42,12 @@ ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click the Users under AUTHENT
 ## Flaw 1: Broken Authentication
 Broken authentication is defined as the application which lacks robust identification and authentication mechanisms. For instance, the password that are guessable, short or lacking in combination of digits, lower or upper alphabets are considered as weak password. To add on, users often use username as password for creating an account quickly. These issues need to be addressed because it is possible for attackers to crack the password easily. 
 
+### Description: As of now, no checking for password has been done, which is a sign of vulnerability. 
+Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
 
+### Fixes: Password checking is done but are commented out.
+Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26
 
-
-Fixes: are commented in the following sections.
 
 ## Flaw 2: SQL Injection
 Another vulnerability is SQL injection when an attacker is able to manipulate a SQL query as shown in the code by injecting malicious SQL code in the web application. In my application, if an attacker somehow is capable of manipulating a SQL query and inserts his iban, instead of the iban account that user has chosen, an attacker gains the money instead of user who genuienely tops up the money. 
