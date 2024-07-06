@@ -23,7 +23,7 @@ If you want to create a new user, open up the terminal and go into this folder. 
 
 This will make the user as superuser status. To downgrade the status, type ``python3 manage.py shell``. 
 
-```
+``
 from django.contrib.auth.models import User
 Update Bob's superuser status
 bob = User.objects.get(username='bob')
@@ -32,7 +32,8 @@ bob.save()
 Update Alice's superuser status
 alice = User.objects.get(username='alice')
 alice.is_superuser = False
-alice.save()```
+alice.save()
+``
 
 
 ## Flaw 1: Broken Authentication
