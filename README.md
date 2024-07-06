@@ -43,15 +43,23 @@ ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click on 'Users' under the 'A
 Broken authentication occurs when an application lacks robust identification and authentication mechanisms. For instance, passwords that are guessable, short, or lack a combination of digits, lowercase, and uppercase letters are considered weak. To add on, users often use their username as their password to create an account quickly. These issues need to be addressed because attackers can easily crack weak passwords.
 
 ### Description: As of now, no password checks have been implemented, which is a significant vulnerability. 
-Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
+Link: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
 
-### Fixes: Password checking is implemented but currently commented out.
-Links: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26-L28
+### Fix: Password checking is implemented but currently commented out.
+Links: 
+https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26-L28
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L35-L36
 
 ## Flaw 2: SQL Injection
-Another vulnerability is SQL injection when an attacker is able to manipulate a SQL query as shown in the code by injecting malicious SQL code in the web application. In my application, if an attacker somehow is capable of manipulating a SQL query and inserts his iban, instead of the iban account that user has chosen, an attacker gains the money instead of user who genuienely tops up the money. 
+Another vulnerability is SQL injection, where an attacker can manipulate a SQL query by injecting malicious SQL code into the web application. In my application, if an attacker manages to manipulate a SQL query and inserts their IBAN, they could receive money instead of the intended user who is topping up their account.
 
-Fix: Instead of using traditional SQL query to update the database, Django's ORM or parameterized queries prevents this vulnerability.
+Fix: To mitigate this issue, avoid using traditional SQL queries directly. Instead, leverage Django's ORM (Object-Relational Mapping) or use parameterized queries, which help prevent SQL injection vulnerabilities.
+
+### Description: As of now, when the user tops up the money, the balance is updated in the database using a traditional SQL query.
+Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L101-L104
+
+### Fix: The solution is to use Django's ORM instead of raw SQL for updating the balance.
+Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L128-L131
 
 ## Flaw 3: Sensitive Data Exposure
 Description : In the HTML form, there are mainly 2 ways of sending the form to the server. They are GET and POST methods. Both could serve same purposes while there is a difference between them. GET method should be used whenever the form does not include any sensitive data while opposite goes for POST method. One of the reasons is that by using GET method, the parameters or values passed within the form gets leaked or exposed in the link path. This opens up the chances that an attacker can steal information from the link path. If the values are a part of sensitive data, it would create a security issue. 
