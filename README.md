@@ -61,7 +61,7 @@ To mitigate this issue, we will avoid using traditional SQL queries. Instead, we
 ### Vulnerable: As of now, when the user tops up the money, the balance is updated in the database using a traditional SQL query.
 Link: <br />
 It uses GET method for sending the form which leads to problem that attacker can manually type in their iban.
-https://github.com/Sanish32/VulnerableBankApp/blob/9af089810b1edfc736787a3e7dd21a9c83acafe3/src/pages/templates/pages/index.html#L35
+https://github.com/Sanish32/VulnerableBankApp/blob/9af089810b1edfc736787a3e7dd21a9c83acafe3/src/pages/templates/pages/index.html#L35-L53
 It exposes parameters in the URL because GET method is being used.
 https://github.com/Sanish32/VulnerableBankApp/blob/ac23f8c9181638c1583beb6298afebf4e755dffd/src/pages/views.py#L137-L138
 It uses traditional SQL query to update the database.
@@ -73,11 +73,11 @@ Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef
 ## Flaw 3: Sensitive Data Exposure
 In HTML forms, there are primarily two methods for sending data to the server: GET and POST. Both can serve the same purpose, but there are key differences between them.
 
-The GET method should be used when the form does not include any sensitive data. In contrast, the POST method is recommended for forms containing sensitive data. One reason for this distinction is that with the GET method, the parameters or values passed within the form are exposed in the URL query string. This exposes them to potential interception by attackers, posing a security risk, especially if the values include sensitive information.
+The GET method should be used when the form does not include any sensitive data. In contrast, the POST method is recommended for forms containing sensitive data. One reason for this distinction is that with the GET method, the parameters or values passed within the form are exposed in the URL. This exposes them to potential interception by attackers, posing a security risk, especially if the values include sensitive information.
 
 On the other hand, the POST method provides a more secure way of handling any type of data, particularly sensitive data. With POST, the values are not exposed in the URL, which mitigates the security risk associated with data interception through the link path.
 
-### Vulnerable: Since the GET method is used to send the form, parameters from the form are exposed in the URL.
+### Vulnerable: Since the GET method is used to send the form, parameters int the form are exposed in the URL.
 Links: 
 https://github.com/Sanish32/VulnerableBankApp/blob/93a057ffcf57450390a578de58a9518cea6ce38b/src/pages/templates/pages/index.html#L70-L80
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L21-L22
