@@ -105,12 +105,12 @@ When an application does not restrict on user's unintended actions, the applicat
 
 To avoid this from happening, whenever user try to delete an account, we want to make sure that the account belongs to the logged in user.
 
-### Vulnerable: 
+### Vulnerable: Account is retrieved based on iban number.
 Links:
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L148-L149
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L110-L111
 
-### Fix: 
+### Fix: Account is retrieved based on iban number which belongs to the logged in user.
 Links:
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L113-L117
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L150-L151
