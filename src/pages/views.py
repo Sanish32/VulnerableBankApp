@@ -154,7 +154,7 @@ def deleteView(request):
             # messages.error(request, "You can only delete your own accounts.")
             # Fix to flaw 4:
             # logger.warning('You can only delete your own accounts')
-            return redirect('/')
+            # return redirect('/')
 
         if account.balance != 0:
             user = Account.objects.filter(owner=request.user)
