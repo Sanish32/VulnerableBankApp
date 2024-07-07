@@ -58,6 +58,11 @@
             {% csrf_token %}
             <span>IBAN:</span><br/>
             <input type="text" name="iban"/><br/>
+            <!-- <select name="iban">
+			{% for account in accounts %}
+                <option value="{{account.iban}}">{{account.iban}}</option>
+			{% endfor %}
+            </select><br/> -->
 
             <input type="submit" value="Delete!"/>
         </form>
