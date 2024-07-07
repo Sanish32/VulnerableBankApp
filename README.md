@@ -134,6 +134,6 @@ https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b1
 For adding money, this approach offers convenience to the user, as they can select their account from a list of their accounts instead of manually entering the IBAN.
 https://github.com/Sanish32/VulnerableBankApp/blob/d526ff02964690e2fc7f0947e994a01873e81d3b/src/pages/templates/pages/index.html#L35-L53
 For deleting an account, the account is retrieved only if it belongs to the currently logged-in user.
-https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L150-L151
+https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L150-L154
 For deleting an account, this approach offers convenience to the user, as they can select their account from a list of their accounts instead of manually entering the IBAN.
 https://github.com/Sanish32/VulnerableBankApp/blob/d526ff02964690e2fc7f0947e994a01873e81d3b/src/pages/templates/pages/index.html#L55-L68
