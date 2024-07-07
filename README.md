@@ -43,11 +43,14 @@ ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click on 'Users' under the 'A
 Broken authentication occurs when an application lacks robust identification and authentication mechanisms. For instance, passwords that are guessable, short, or lack a combination of digits, lowercase, and uppercase letters are considered weak. To add on, users often use their username as their password to create an account quickly. These issues need to be addressed because attackers can easily crack weak passwords.
 
 ### Vulnerable: As of now, no password checks have been implemented, which is a significant vulnerability. 
-Link: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
+Link: 
+https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
 
 ### Fix: Password checking is implemented but currently commented out.
 Links: 
+It checks whether the password is weak or not.
 https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26-L28
+It checks whether the password is same as username or not.
 https://github.com/Sanish32/VulnerableBankApp/blob/6598b5eac063e4131c6750d3d0bf93f25e32e249/src/pages/views.py#L35-L41
 
 ## Flaw 2: SQL Injection
