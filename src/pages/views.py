@@ -32,11 +32,11 @@ def createView(request):
 
             return redirect('/')
 
-        if newpassword != request.user.username:
-            messages.error(request, "Password must be the same as your username.")
+        if newpassword == request.user.username:
+            messages.error(request, "Password must not be the same as your username.")
 
             # Fix to flaw 4:
-            # logger.warning('Password must be the same as your username')
+            # logger.warning('Password must not be the same as your username')
 
             return redirect('/')
         """
