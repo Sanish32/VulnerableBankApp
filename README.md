@@ -22,7 +22,7 @@ You can use the two premade users:
 
 f you want to create a new user, open the terminal and navigate to this folder. Then, type ``python3 manage.py createsuperuser``. You will be prompted to enter a new username, email, and password. Enter the username and password, and skip the email section by pressing the Enter key. This will create a user with superuser status. 
 
-To downgrade the status, you can choose one of the following methods:
+To downgrade the status, you can choose one of the following methods:<br />
 i) type ``python3 manage.py shell``. 
 
 ``
