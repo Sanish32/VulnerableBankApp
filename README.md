@@ -8,7 +8,7 @@ The project demonstrates five types of vulnerabilities, with comments providing 
 
 ## Installation Instructions
 
-1. Clone the directory
+1. Clone the directory. After cloning, I have noticed that unknown indentation come in line 149 of ``views.py`` file inside ``pages`` folder. Fix the indentation.
 2. Run the server with: ``python3 manage.py runserver``
 3. Go to ``http://localhost:8000/``
 
