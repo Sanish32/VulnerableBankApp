@@ -43,7 +43,7 @@ ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click on 'Users' under the 'A
 Broken authentication occurs when an application lacks robust identification and authentication mechanisms. For instance, passwords that are guessable, short, or lack a combination of digits, lowercase, and uppercase letters are considered weak. To add on, users often use their username as their password to create an account quickly. These issues need to be addressed because attackers can easily crack weak passwords.
 
 ### Vulnerable: As of now, no password checks have been implemented, which is a significant vulnerability. 
-Link: 
+Link: <br />
 https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
 
 ### Fix: Password checking is implemented but currently commented out.
@@ -68,7 +68,8 @@ It uses traditional SQL query to update the database.
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L101-L104
 
 ### Fix: The solution is to use Django's ORM instead of raw SQL for updating the balance.
-Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L128-L131
+Link: <br />
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L128-L131
 
 ## Flaw 3: Sensitive Data Exposure
 In HTML forms, there are primarily two methods for sending data to the server: GET and POST. Both can serve the same purpose, but there are key differences between them.
@@ -78,15 +79,19 @@ The GET method should be used when the form does not include any sensitive data.
 On the other hand, the POST method provides a more secure way of handling any type of data, particularly sensitive data. With POST, the values are not exposed in the URL, which mitigates the security risk associated with data interception through the link path.
 
 ### Vulnerable: Since the GET method is used to send the form, parameters int the form are exposed in the URL.
-Links: 
-https://github.com/Sanish32/VulnerableBankApp/blob/93a057ffcf57450390a578de58a9518cea6ce38b/src/pages/templates/pages/index.html#L70-L80
+Links: <br />
+The form is sent via GET method.
+https://github.com/Sanish32/VulnerableBankApp/blob/9af089810b1edfc736787a3e7dd21a9c83acafe3/src/pages/templates/pages/index.html#L70-L80
+The evidence that GET method is used to retrieve password.
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L21-L22
+The parameters are being exposed in the URL because GET method is used.
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L83-L85
 
 ### Fixes: When an account is created, the form is sent via the POST method. Additionally, the user is redirected to the home page after account creation.
-Links: 
-https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L87-L88
+Links: <br />
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L14-L19
+
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L87-L88
 
 ## Flaw 4: Insufficient Logging & Monitoring
 While the application may function properly meeting basic needs, it is considered good practice to implement logging for monitoring the application. Depending on the type of logging implemented, it helps developers track ongoing events and detect malicious activities.
