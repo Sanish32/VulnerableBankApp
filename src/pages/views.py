@@ -145,9 +145,9 @@ def deleteView(request):
     if request.method == 'GET':
         iban = request.GET.get('iban')
 
-        account = Account.objects.get(iban=iban)
-
         # Vulnerable to Flaw 5: Broken Access Control
+	account = Account.objects.get(iban=iban)
+        # Fix to flaw 5:
         # account = Account.objects.get(iban=iban, owner=request.user)   
 
         if account.owner != request.user:
