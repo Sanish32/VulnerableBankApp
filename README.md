@@ -47,7 +47,7 @@ Link:
 https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L22
 
 ### Fix: Password checking is implemented but currently commented out.
-Links: 
+Links: <br />
 It checks whether the password is weak or not.
 https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26-L28
 It checks whether the password is same as username or not.
