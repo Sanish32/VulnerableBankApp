@@ -101,17 +101,20 @@ https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L177-L178
 
 ## Flaw 5: Broken Access Control
-When an application does not restrict on user's unintended actions, the application is said to have broken access control. For instance, when deleting an account, if the user accidently enters wrong IBAN, then person will lose his/her this account. 
+When an application fails to restrict unintended actions by users, it exhibits broken access control. For example, when deleting an account, if a user accidentally enters the wrong IBAN, they could lose access to their account.
 
-To avoid this from happening, whenever user try to delete an account, we want to make sure that the account belongs to the logged in user.
+Similarly, in the case of topping up money, if a user mistakenly enters a wrong IBAN, the money could be transferred to the incorrect account.
+
+To prevent these scenarios, it's crucial to verify that actions such as topping up money or deleting an account are performed only on accounts belonging to the logged-in user.
 
 ### Vulnerable: Account is retrieved based on iban number.
 Links:
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L148-L149
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L110-L111
 
-### Fix: Account is retrieved based on iban number which belongs to the logged in user.
+### Fix: Account is retrieved based on iban number which belongs to the logged in user. To avoid this issue, we can show the list of accounts that belongs to the user as an option. This way, the user does not have to manually type in the IBAN.
 Links:
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L113-L117
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L150-L151
+https://github.com/Sanish32/VulnerableBankApp/blob/d526ff02964690e2fc7f0947e994a01873e81d3b/src/pages/templates/pages/index.html#L35-L53
 https://github.com/Sanish32/VulnerableBankApp/blob/d526ff02964690e2fc7f0947e994a01873e81d3b/src/pages/templates/pages/index.html#L55-L68
