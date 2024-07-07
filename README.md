@@ -26,15 +26,15 @@ To downgrade the status, you can choose one of the following methods:<br />
 i) type ``python3 manage.py shell``. 
 
 ``
-from django.contrib.auth.models import User 
-Update Bob's superuser status
-bob = User.objects.get(username='bob')
-bob.is_superuser = False
-bob.save()
-Update Alice's superuser status
-alice = User.objects.get(username='alice')
-alice.is_superuser = False
-alice.save()
+from django.contrib.auth.models import User <br />
+Update Bob's superuser status <br />
+bob = User.objects.get(username='bob') <br />
+bob.is_superuser = False <br />
+bob.save() <br />
+Update Alice's superuser status <br />
+alice = User.objects.get(username='alice') <br />
+alice.is_superuser = False <br />
+alice.save() <br />
 ``
 
 ii) Go to ``http://127.0.0.1:8000/admin/`` . Then, click on 'Users' under the 'AUTHENTICATION AND AUTHORIZATION' section. Next, click on the desired user and untick the 'staff' and 'superuser' status checkboxes.
