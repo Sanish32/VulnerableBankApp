@@ -65,7 +65,7 @@ https://github.com/Sanish32/VulnerableBankApp/blob/9af089810b1edfc736787a3e7dd21
 It exposes parameters in the URL because GET method is being used.
 https://github.com/Sanish32/VulnerableBankApp/blob/ac23f8c9181638c1583beb6298afebf4e755dffd/src/pages/views.py#L137-L138
 It uses traditional SQL query to update the database.
-https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L101-L104
+https://github.com/Sanish32/VulnerableBankApp/blob/dc8d68cf43a97eec593ea71b084330f45eaa6c06/src/pages/views.py#L101-L104
 
 ### Fix: The solution is to use Django's ORM instead of raw SQL for updating the balance.
 Link: <br />
