@@ -99,7 +99,7 @@ def addView(request):
         # amount = int(request.POST.get('amount', 0))
 	    
         # Vulnerable to SQL injection
-        query = f"UPDATE Account SET balance = balance + {amount} WHERE iban = '{iban}'"
+        query = f"UPDATE pages_account SET balance = balance + {amount} WHERE iban = '{iban}'"
         with connection.cursor() as cursor:
             cursor.execute(query)
 
