@@ -48,7 +48,7 @@ Link: https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab1
 ### Fix: Password checking is implemented but currently commented out.
 Links: 
 https://github.com/Sanish32/VulnerableBankApp/blob/e657c4fd108e1c9cbf70ab182a439057feff7fab/src/pages/views.py#L26-L28
-https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L35-L36
+https://github.com/Sanish32/VulnerableBankApp/blob/6598b5eac063e4131c6750d3d0bf93f25e32e249/src/pages/views.py#L35-L41
 
 ## Flaw 2: SQL Injection
 Another vulnerability is SQL injection, where an attacker can manipulate a SQL query by injecting malicious SQL code into the web application. In my application, if an attacker manages to manipulate a SQL query and inserts their IBAN, they could receive money instead of the intended user who is topping up their account.
