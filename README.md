@@ -101,7 +101,9 @@ https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L177-L178
 
 ## Flaw 5: Broken Access Control
+When an application does not restrict on user's unintended actions, the application is said to have broken access control. For instance, when deleting an account, if the user accidently enters wrong IBAN, then person will lose his/her this account. 
 
+To avoid this from happening, whenever user try to delete an account, we want to make sure that the account belongs to the logged in user.
 
 ### Vulnerable: 
 Links:
@@ -112,4 +114,4 @@ https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b1
 Links:
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L113-L117
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L150-L151
-
+https://github.com/Sanish32/VulnerableBankApp/blob/d526ff02964690e2fc7f0947e994a01873e81d3b/src/pages/templates/pages/index.html#L55-L68
