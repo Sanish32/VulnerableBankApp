@@ -150,8 +150,8 @@ def deleteView(request):
         # Fix to flaw 5:
         # account = Account.objects.get(iban=iban, owner=request.user)   
 
-        if account.owner != request.user:
-            messages.error(request, "You can only delete your own accounts.")
+        # if account.owner != request.user:
+            # messages.error(request, "You can only delete your own accounts.")
             # Fix to flaw 4:
             # logger.warning('You can only delete your own accounts')
             return redirect('/')
