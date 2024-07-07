@@ -114,20 +114,26 @@ https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L177-L178
 
 ## Flaw 5: Broken Access Control
-When an application fails to restrict unintended actions by users, it exhibits broken access control. For example, when deleting an account, if a user accidentally enters the wrong IBAN, they could lose access to their account.
+When an application fails to restrict unintended actions by users, it leads to broken access control. For example, when deleting an account, if a user accidentally enters the wrong IBAN, person holding this IBAN could lose access to their account.
 
 Similarly, in the case of topping up money, if a user mistakenly enters a wrong IBAN, the money could be transferred to the incorrect account.
 
 To prevent these scenarios, it's crucial to verify that actions such as topping up money or deleting an account are performed only on accounts belonging to the logged-in user.
 
-### Vulnerable: Account is retrieved based on iban number.
+### Vulnerable: Account is retrieved based on IBAN.
 Links:
-https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L148-L149
+When topping up the money, IBAN is retrieved based on IBAN:
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L110-L111
+When deleting an account, IBAN is retrieved based on IBAN: 
+https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L148-L149
 
 ### Fix: Account is retrieved based on iban number which belongs to the logged in user. To avoid this issue, we can show the list of accounts that belongs to the user as an option. This way, the user does not have to manually type in the IBAN.
 Links:
+For adding money, the account is retrieved only if it belongs to the currently logged-in user.
 https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L113-L117
-https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L150-L151
+For adding money, this approach offers convenience to the user, as they can select their account from a list of their accounts instead of manually entering the IBAN.
 https://github.com/Sanish32/VulnerableBankApp/blob/d526ff02964690e2fc7f0947e994a01873e81d3b/src/pages/templates/pages/index.html#L35-L53
+For deleting an account, the account is retrieved only if it belongs to the currently logged-in user.
+https://github.com/Sanish32/VulnerableBankApp/blob/93bf24c2e82ad3344492c9c9644b18b688e3e908/src/pages/views.py#L150-L151
+For deleting an account, this approach offers convenience to the user, as they can select their account from a list of their accounts instead of manually entering the IBAN.
 https://github.com/Sanish32/VulnerableBankApp/blob/d526ff02964690e2fc7f0947e994a01873e81d3b/src/pages/templates/pages/index.html#L55-L68
