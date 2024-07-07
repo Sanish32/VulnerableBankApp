@@ -56,12 +56,16 @@ https://github.com/Sanish32/VulnerableBankApp/blob/6598b5eac063e4131c6750d3d0bf9
 ## Flaw 2: SQL Injection
 Another vulnerability is SQL injection, where an attacker can manipulate a SQL query by injecting malicious SQL code into the web application. In my application, if an attacker manages to manipulate a SQL query and inserts their IBAN, they could receive money instead of the intended user who is topping up their account.
 
-To mitigate this issue, avoid using traditional SQL queries directly. Instead, leverage Django's ORM (Object-Relational Mapping) or use parameterized queries, which help prevent SQL injection vulnerabilities.
+To mitigate this issue, we will avoid using traditional SQL queries. Instead, we will use Django's ORM (Object-Relational Mapping) or use parameterized queries, which help prevent SQL injection vulnerabilities.
 
 ### Vulnerable: As of now, when the user tops up the money, the balance is updated in the database using a traditional SQL query.
-Link: 
-https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L101-L104
+Link: <br />
+It uses GET method for sending the form which leads to problem that attacker can manually type in their iban.
+https://github.com/Sanish32/VulnerableBankApp/blob/9af089810b1edfc736787a3e7dd21a9c83acafe3/src/pages/templates/pages/index.html#L35
+It exposes parameters in the URL because GET method is being used.
 https://github.com/Sanish32/VulnerableBankApp/blob/ac23f8c9181638c1583beb6298afebf4e755dffd/src/pages/views.py#L137-L138
+It uses traditional SQL query to update the database.
+https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L101-L104
 
 ### Fix: The solution is to use Django's ORM instead of raw SQL for updating the balance.
 Link: https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L128-L131
