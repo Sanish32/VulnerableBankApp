@@ -72,6 +72,7 @@ On the other hand, the POST method provides a more secure way of handling any ty
 
 ### Vulnerable: Since the GET method is used to send the form, parameters from the form are exposed in the URL.
 Links: 
+https://github.com/Sanish32/VulnerableBankApp/blob/93a057ffcf57450390a578de58a9518cea6ce38b/src/pages/templates/pages/index.html#L65-L75
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L21-L22
 https://github.com/Sanish32/VulnerableBankApp/blob/b8da51c5b0b5a46344142ef6921bc3c5cc90a87c/src/pages/views.py#L83-L85
 
